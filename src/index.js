@@ -25,12 +25,6 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
-window.onload = () => {
-
-  // Selecting the form and adding an event listener for submission
-  document.querySelector("button").onclick = handleForm;
-}
-
 const displayReviews = document.querySelector(".reviews");
 
 function renderReviews(review) {
@@ -70,9 +64,29 @@ function renderReviews(review) {
 // Using .forEach to iterate over each review and render it with the above function
 reviews.forEach(renderReviews);
 
-// Function to add submitted data to existing reviews array
-async function handleForm(event) {
+//Selecting form from the DOM
+const reviewForm = document.querySelector("form");
 
-  // Adding preventDefault so a submit page doesn't try to load
+//Event listener - Changed to this rather than use onload since this is what was specifically mentioned
+reviewForm.addEventListener("submit", function(event) {
+
+  //Prevents page from trying to load submit
   event.preventDefault();
-}
+
+  // Accessing the inputs from the form and storing their data
+  const newReview = {
+    username: document.querySelector("#username").value,
+    img: document.querySelector("#image").value,
+    rating: document.querySelector("#star").value,
+    userReview: document.querySelector("#review").value
+  };
+
+    // Sanity check to make sure it's working
+  console.log(newReview);
+
+  // Add new info to the reviews array
+  reviews.push(newReview);
+
+  // Use the above method to render the new review
+  renderReviews(newReview);
+});
