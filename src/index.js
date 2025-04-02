@@ -30,6 +30,11 @@ function renderReviews(review) {
   // Creating elements
   const containerDiv = document.createElement("div");
   const img = document.createElement("img");
-  const paragraphDiv = document.createElement("div");
-  const paragraph = document.createElement("p");
+  const infoDiv = document.createElement("div");
+  const username = document.createElement("p");
+  const rating = document.createElement("p");
+  const userReview = document.createElement("p");
+
+  
+
 }
