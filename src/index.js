@@ -25,6 +25,8 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+const displayReviews = document.querySelector(".reviews");
+
 function renderReviews(review) {
 
   // Creating elements
@@ -54,4 +56,9 @@ function renderReviews(review) {
   // Adding everything to main container
   containerDiv.appendChild(img);
   containerDiv.appendChild(infoDiv);
+
+  // Tie in main container to where it should be loaded
+  displayReviews.appendChild(containerDiv);
 }
+
+reviews.forEach(renderReviews);
