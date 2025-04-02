@@ -75,13 +75,13 @@ reviewForm.addEventListener("submit", function(event) {
 
   // Accessing the inputs from the form and storing their data
   const newReview = {
-    username: document.querySelector("#username").value,
-    img: document.querySelector("#image").value,
-    rating: document.querySelector("#star").value,
-    userReview: document.querySelector("#review").value
+    username: document.getElementById("username").value,
+    image: document.getElementById("image").value,
+    star: document.getElementById("star").value,
+    review: document.getElementById("review").value
   };
 
-    // Sanity check to make sure it's working
+  // Sanity check to make sure it's working
   console.log(newReview);
 
   // Add new info to the reviews array
