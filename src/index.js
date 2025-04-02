@@ -25,8 +25,11 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+
+// const to select important bits from index.html using DOM
 const displayReviews = document.querySelector(".reviews");
 const starDisplay = document.querySelector(".starRating");
+const reviewForm = document.querySelector("form");
 
 function renderReviews(review) {
 
@@ -69,16 +72,13 @@ reviews.forEach(renderReviews);
 function starRating() {
   const overallAverage = calculateStarAverage(reviews);
 
-  // Making sure that math is working
+  // Sanity check
   console.log(overallAverage);
 
   starDisplay.textContent = `Star Rating: ${overallAverage}`;
 }
 
 starRating();
-
-//Selecting form from the DOM
-const reviewForm = document.querySelector("form");
 
 //Event listener - Changed to this rather than use onload since this is what was specifically mentioned
 reviewForm.addEventListener("submit", function(event) {
@@ -90,7 +90,8 @@ reviewForm.addEventListener("submit", function(event) {
   const newReview = {
     username: document.getElementById("username").value,
     image: document.getElementById("image").value,
-    star: document.getElementById("star").value,
+    // Converting this to an integer so it can be used in math
+    star: parseInt(document.getElementById("star").value),
     review: document.getElementById("review").value
   };
 
@@ -102,4 +103,7 @@ reviewForm.addEventListener("submit", function(event) {
 
   // Use the above method to render the new review
   renderReviews(newReview);
+
+  // Updating the rating with new review added
+  starRating();
 });
