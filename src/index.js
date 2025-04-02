@@ -35,6 +35,23 @@ function renderReviews(review) {
   const rating = document.createElement("p");
   const userReview = document.createElement("p");
 
-  
+  // Creating textContent
+  username.textContent = review.username;
+  rating.textContent = review.star;
+  userReview.textContent = review.review;
 
+  // Creating img
+  img.src = review.image;
+
+  // Adding class to main container
+  containerDiv.className = "review_container";
+
+  // Adding info to infoDiv
+  infoDiv.appendChild(username);
+  infoDiv.appendChild(rating);
+  infoDiv.appendChild(userReview);
+
+  // Adding everything to main container
+  containerDiv.appendChild(img);
+  containerDiv.appendChild(infoDiv);
 }
