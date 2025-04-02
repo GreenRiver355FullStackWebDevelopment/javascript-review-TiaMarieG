@@ -1,3 +1,5 @@
+import { calculateStarAverage } from "./logic.js";
+
 //Do not change //////////////////////////////////
 const reviews = [
   {
@@ -23,3 +25,11 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+function renderReviews(review) {
+
+  // Creating elements
+  const containerDiv = document.createElement("div");
+  const img = document.createElement("img");
+  const paragraphDiv = document.createElement("div");
+  const paragraph = document.createElement("p");
+}
