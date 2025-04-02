@@ -25,6 +25,12 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+window.onload = () => {
+
+  // Selecting the form and adding an event listener for submission
+  document.querySelector("button").onclick = handleForm;
+}
+
 const displayReviews = document.querySelector(".reviews");
 
 function renderReviews(review) {
@@ -61,4 +67,12 @@ function renderReviews(review) {
   displayReviews.appendChild(containerDiv);
 }
 
+// Using .forEach to iterate over each review and render it with the above function
 reviews.forEach(renderReviews);
+
+// Function to add submitted data to existing reviews array
+async function handleForm(event) {
+
+  // Adding preventDefault so a submit page doesn't try to load
+  event.preventDefault();
+}
