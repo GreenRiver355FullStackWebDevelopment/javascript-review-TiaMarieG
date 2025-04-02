@@ -26,6 +26,7 @@ const reviews = [
 
 //Your Code Below Here////
 const displayReviews = document.querySelector(".reviews");
+const starDisplay = document.querySelector(".starRating");
 
 function renderReviews(review) {
 
@@ -63,6 +64,18 @@ function renderReviews(review) {
 
 // Using .forEach to iterate over each review and render it with the above function
 reviews.forEach(renderReviews);
+
+// Function for rendering the overall star rating
+function starRating() {
+  const overallAverage = calculateStarAverage(reviews);
+
+  // Making sure that math is working
+  console.log(overallAverage);
+
+  starDisplay.textContent = `Star Rating: ${overallAverage}`;
+}
+
+starRating();
 
 //Selecting form from the DOM
 const reviewForm = document.querySelector("form");
